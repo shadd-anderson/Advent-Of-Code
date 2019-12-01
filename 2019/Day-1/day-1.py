@@ -1,11 +1,10 @@
 import fileinput
-import math
 
 lines = list(int(line) for line in fileinput.input('1.txt'))
 
 
 def part1():
-    return sum((math.floor(line / 3 - 2) for line in lines))
+    return sum(line // 3 - 2 for line in lines)
 
 
 def part2():
@@ -14,7 +13,7 @@ def part2():
         more_fuel = True
         fuel = line
         while more_fuel:
-            fuel_needed = math.floor(fuel / 3) - 2
+            fuel_needed = fuel // 3 - 2
             if fuel_needed > 0:
                 total += fuel_needed
                 fuel = fuel_needed
